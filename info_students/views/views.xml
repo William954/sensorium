@@ -5,13 +5,17 @@
           <field name="model">op.student</field>
           <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
           <field name="arch" type="xml">
-            <xpath expr="//page[@name='personal_information']" position="after">
-              <field name="oficial_identification"/>
-              <field name="address_proof"/>
-              <field name="birth_certificate"/>
-              <field name="curp"/>
-              <field name="highschool_certificate"/>
-            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]//page[@name='personal_information']" position="after">
+	    <page name="attachments" string="Documentacion">
+	     <group>
+       	       <field name="oficial_identification"/>
+               <field name="address_proof"/>
+               <field name="birth_certificate"/>
+               <field name="curp"/>
+               <field name="highschool_certificate"/>
+            </group>
+	   </page>
+	  </xpath>
           </field>
         </record>
   </data>
