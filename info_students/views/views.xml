@@ -1,22 +1,41 @@
 <odoo>
   <data>
-        <record id="inherit_fields_form" model="ir.ui.view">
-          <field name="name">inherit.fields.form</field>
-          <field name="model">op.student</field>
-          <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
-          <field name="arch" type="xml">
-            <xpath expr="//form[1]/sheet[1]/notebook[1]//page[@name='personal_information']" position="after">
-	    <page name="attachments" string="Documentacion">
-	     <group>
-       	       <field name="oficial_identification"/>
-               <field name="address_proof"/>
-               <field name="birth_certificate"/>
-               <field name="curp"/>
-               <field name="highschool_certificate"/>
+
+    <record id="inherit_fields_form" model="ir.ui.view">
+      <field name="name">inherit.fields.form</field>
+      <field name="model">op.student</field>
+      <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//form[1]/sheet[1]/notebook[1]//page[@name='personal_information']" position="after">
+          <page name="attachments" string="Documentacion">
+           <group>
+            <group>
+              <field name="oficial_identification"/>
+              <field name="address_proof"/>
+              <field name="birth_certificate"/>
+              <field name="curp"/>
+              <field name="highschool_certificate"/>
             </group>
-	   </page>
-	  </xpath>
-          </field>
-        </record>
+             <group>
+              <field name="check_identification_oficial" />
+              <field name="check_adress_proof" />
+              <field name="check_birth_certificate" />
+              <field name="check_curp" />
+              <field name="check_highschool_certificate" />
+              </group>
+            </group>
+         </page>
+        </xpath>
+        <xpath expr="//field[@name='middle_name']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='last_name']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+      </field>
+    </record>
+
+
+
   </data>
 </odoo>
